@@ -1,40 +1,42 @@
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.stream.Collectors;
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
 
 public class Solution {
 
-	private static String s = "ababa";
-	private static long n = 3;
+    // Complete the minimumBribes function below.
+    static void minimumBribes(int[] q) {
 
-	// Complete the repeatedString function below.
-	static long repeatedString(String s, long n) {
 
-		if (s.length() > n) {
+    }
 
-			return findCount(s.substring(0, (int) n));
-		}
+    private static final Scanner scanner = new Scanner(System.in);
 
-		long repetationCount = n / s.length();
-		long remainder =  n % s.length();
-		int repeation = findCount(s);
+    public static void main(String[] args) {
+        int t = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-		long count = repeation * repetationCount + findCount(s.substring(0, (int)remainder));
-		return count;
+        for (int tItr = 0; tItr < t; tItr++) {
+            int n = scanner.nextInt();
+            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-	}
+            int[] q = new int[n];
 
-	private static int findCount(String s) {
+            String[] qItems = scanner.nextLine().split(" ");
+            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-		return s.chars().mapToObj(c -> (char) c).filter(a -> a == 'a').collect(Collectors.toList()).size();
-	}
+            for (int i = 0; i < n; i++) {
+                int qItem = Integer.parseInt(qItems[i]);
+                q[i] = qItem;
+            }
 
-	private static final Scanner scanner = new Scanner(System.in);
+            minimumBribes(q);
+        }
 
-	public static void main(String[] args) throws IOException {
-
-		long result = repeatedString(s, n);
-
-		System.out.println(result);
-	}
+        scanner.close();
+    }
 }
