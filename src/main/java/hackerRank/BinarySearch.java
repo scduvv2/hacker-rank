@@ -1,3 +1,4 @@
+package hackerRank;
 
 public class BinarySearch {
 
